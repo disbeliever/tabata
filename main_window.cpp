@@ -9,8 +9,6 @@ MainWindow::MainWindow (QWidget *parent) : QMainWindow(parent) {
   connect(restTimer, SIGNAL(timeout()), this, SLOT(restEvent()));
   connect(timer, SIGNAL(timeout()), this, SLOT(paintEvent()));
   running = false;
-  restTime = 10;
-  activeTime = 20;
 }
 
 MainWindow::~MainWindow() {
@@ -26,6 +24,8 @@ void MainWindow::timerStart() {
     ui.startButton->setText("Start");
     return;
   }
+  activeTime = ui.spinBoxInterval->value();
+  restTime = ui.spinBoxPause->value();
   running = true;
   active = true;
 

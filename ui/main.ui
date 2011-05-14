@@ -47,9 +47,6 @@
      </item>
      <item>
       <widget class="QTimeEdit" name="timeEdit">
-       <property name="displayFormat">
-        <string>mm:ss</string>
-       </property>
        <property name="time">
         <time>
          <hour>0</hour>
@@ -57,15 +54,26 @@
          <second>0</second>
         </time>
        </property>
+       <property name="displayFormat">
+        <string>mm:ss</string>
+       </property>
       </widget>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QSpinBox" name="spinBoxInterval"/>
+        <widget class="QSpinBox" name="spinBoxInterval">
+         <property name="value">
+          <number>20</number>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="spinBoxPause"/>
+        <widget class="QSpinBox" name="spinBoxPause">
+         <property name="value">
+          <number>10</number>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QPushButton" name="startButton">

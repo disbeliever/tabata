@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'main.ui'
 **
-** Created: Sat May 7 18:04:23 2011
+** Created: Sat May 14 20:02:23 2011
 **      by: Qt User Interface Compiler version 4.7.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -73,11 +73,13 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         spinBoxInterval = new QSpinBox(verticalLayoutWidget);
         spinBoxInterval->setObjectName(QString::fromUtf8("spinBoxInterval"));
+        spinBoxInterval->setValue(20);
 
         horizontalLayout->addWidget(spinBoxInterval);
 
         spinBoxPause = new QSpinBox(verticalLayoutWidget);
         spinBoxPause->setObjectName(QString::fromUtf8("spinBoxPause"));
+        spinBoxPause->setValue(10);
 
         horizontalLayout->addWidget(spinBoxPause);
 
