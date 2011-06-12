@@ -1,5 +1,7 @@
 #include <QtGui>
+
 #include "main_window.h"
+#include "pomodoro.h"
 
 MainWindow::MainWindow (QWidget *parent) : QMainWindow(parent) {
   ui.setupUi(this);
@@ -8,11 +10,17 @@ MainWindow::MainWindow (QWidget *parent) : QMainWindow(parent) {
   connect(ui.startButton, SIGNAL(clicked()), SLOT(timerStart()));
   connect(restTimer, SIGNAL(timeout()), this, SLOT(restEvent()));
   connect(timer, SIGNAL(timeout()), this, SLOT(paintEvent()));
+
+  connect(ui.pomodoroAddButton, SIGNAL(clicked()), this, SLOT(pomodoroAddTask()));
   running = false;
 }
 
 MainWindow::~MainWindow() {
 
+}
+
+void MainWindow::pomodoroAddTask() {
+  
 }
 
 void MainWindow::timerStart() {

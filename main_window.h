@@ -27,6 +27,7 @@ class MainWindow : public QMainWindow
   void restEvent();
   void paintEvent();
   void updateTimer(QLabel *label);
+  void pomodoroAddTask();
   //  void update();
 };
 
