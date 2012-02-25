@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Tabata</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTabWidget" name="tabWidget">
@@ -33,7 +33,7 @@
      <enum>QTabWidget::West</enum>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabTabata">
      <attribute name="title">
@@ -46,7 +46,7 @@
          <widget class="QLabel" name="timerLabel">
           <property name="font">
            <font>
-            <pointsize>25</pointsize>
+            <pointsize>30</pointsize>
            </font>
           </property>
           <property name="text">
@@ -148,6 +148,17 @@
     </widget>
    </widget>
   </widget>
+  <action name="actionRenameTask">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Rename</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

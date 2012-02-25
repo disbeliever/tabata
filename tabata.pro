@@ -6,6 +6,8 @@ TEMPLATE = app
 TARGET = 
 DEPENDPATH += . ui
 INCLUDEPATH += .
+#CONFIG += link_pkgconfig
+#PKGCONFIG += sdl
 
 # Input
 HEADERS += main_window.h pomodoro.h

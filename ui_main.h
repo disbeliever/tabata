@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'main.ui'
 **
-** Created: Sat Jun 11 19:23:48 2011
-**      by: Qt User Interface Compiler version 4.7.2
+** Created: Wed Feb 22 19:29:32 2012
+**      by: Qt User Interface Compiler version 4.7.4
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -32,6 +32,7 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionRenameTask;
     QWidget *centralwidget;
     QTabWidget *tabWidget;
     QWidget *tabTabata;
@@ -55,6 +56,9 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(309, 307);
+        actionRenameTask = new QAction(MainWindow);
+        actionRenameTask->setObjectName(QString::fromUtf8("actionRenameTask"));
+        actionRenameTask->setCheckable(true);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         tabWidget = new QTabWidget(centralwidget);
@@ -75,7 +79,7 @@ public:
         timerLabel = new QLabel(tabTabata);
         timerLabel->setObjectName(QString::fromUtf8("timerLabel"));
         QFont font;
-        font.setPointSize(25);
+        font.setPointSize(30);
         timerLabel->setFont(font);
         timerLabel->setAlignment(Qt::AlignCenter);
         timerLabel->setMargin(0);
@@ -146,7 +150,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -154,7 +158,9 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Tabata", 0, QApplication::UnicodeUTF8));
+        actionRenameTask->setText(QApplication::translate("MainWindow", "Rename", 0, QApplication::UnicodeUTF8));
+        actionRenameTask->setShortcut(QApplication::translate("MainWindow", "Ctrl+R", 0, QApplication::UnicodeUTF8));
         timerLabel->setText(QApplication::translate("MainWindow", "0:00", 0, QApplication::UnicodeUTF8));
         timeEdit->setDisplayFormat(QApplication::translate("MainWindow", "mm:ss", 0, QApplication::UnicodeUTF8));
 #ifndef QT_NO_TOOLTIP

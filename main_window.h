@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QtGui>
 #include "ui_main.h"
+#include "pomodoro.h"
 
 class MainWindow : public QMainWindow
 {
@@ -16,10 +17,15 @@ class MainWindow : public QMainWindow
   QTimer *timer;
   QTimer *restTimer;
   QTime time;
+
+  QProcess ps; //mplayer process
+  QStringList commandAndParameters;
+
   bool running;
   bool active;
   int restTime;
   int activeTime;
+  Pomodoro *pomodoro;
 
   private slots:
   void timerStart();
@@ -28,6 +34,7 @@ class MainWindow : public QMainWindow
   void paintEvent();
   void updateTimer(QLabel *label);
   void pomodoroAddTask();
+  void pomodoroRenameTask();
   //  void update();
 };
 

@@ -1,18 +1,26 @@
 #include <QtGui>
+#include <QSound>
+#include <iostream>
 
 #include "main_window.h"
-#include "pomodoro.h"
 
 MainWindow::MainWindow (QWidget *parent) : QMainWindow(parent) {
   ui.setupUi(this);
   timer = new QTimer(this);
   restTimer = new QTimer(this);
   connect(ui.startButton, SIGNAL(clicked()), SLOT(timerStart()));
+  connect(ui.actionRenameTask, SIGNAL(activated()), SLOT(pomodoroRenameTask()));
   connect(restTimer, SIGNAL(timeout()), this, SLOT(restEvent()));
   connect(timer, SIGNAL(timeout()), this, SLOT(paintEvent()));
 
   connect(ui.pomodoroAddButton, SIGNAL(clicked()), this, SLOT(pomodoroAddTask()));
   running = false;
+
+  pomodoro = new Pomodoro;
+  pomodoro->addTask(new Task("Hello"));
+
+  commandAndParameters <<
+    "/home/nerevar/samples/thesys_drums_pt1/hats+2perc/hat5.flac";
 }
 
 MainWindow::~MainWindow() {
@@ -20,7 +28,13 @@ MainWindow::~MainWindow() {
 }
 
 void MainWindow::pomodoroAddTask() {
-  
+  pomodoro->addTask(new Task("Example"));
+  ui.listWidget->addItem("Hello world");
+}
+
+void MainWindow::pomodoroRenameTask() {
+  ui.listWidget->openPersistentEditor(ui.listWidget->currentItem());
+  std::cout << "renaming";
 }
 
 void MainWindow::timerStart() {
@@ -43,6 +57,7 @@ void MainWindow::timerStart() {
   ui.startButton->setText("Stop");
   this->setStyleSheet("background-color: red;");
   restTimer->start(activeTime*1000);
+  ps.start("mplayer", commandAndParameters);
 }
 
 void MainWindow::paintEvent() {
@@ -59,10 +74,12 @@ void MainWindow::restEvent() {
     this->setStyleSheet("background-color: green;");
     restTimer->start(restTime*1000);
     active = false;
+    ps.start("mplayer", commandAndParameters);
   }
   else {
     this->setStyleSheet("background-color: red;");
     restTimer->start(activeTime*1000);
     active = true;
+    ps.start("mplayer", commandAndParameters);
   }
 }
