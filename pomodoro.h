@@ -2,26 +2,23 @@
 #include <QTimer>
 #include <QList>
 
-class Task : public QObject
+class Task
 {
-  Q_OBJECT
-    public:
-  Task(QString content, QObject *parent = 0);
+public:
+  Task(QString content);
   ~Task();
   QString getContent();
- private:
+private:
   QString content;
 };
 
-class Pomodoro : public QObject
+class Pomodoro
 {
-  Q_OBJECT
-    public:
-  Pomodoro(QObject *parent = 0);
+public:
+  Pomodoro();
   ~Pomodoro();
-  void addTask(Task *task);
- private:
-  //QStringList *tasks;
+  void addTask(Task& task);
+private:
   QList<Task> *tasks;
   QTimer *timer;
 };

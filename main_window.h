@@ -9,10 +9,10 @@
 class MainWindow : public QMainWindow
 {
   Q_OBJECT
-    public:
+public:
   MainWindow(QWidget *parent = 0);
   ~MainWindow();
- private:
+private:
   Ui::MainWindow ui;
   QTimer *timer;
   QTimer *restTimer;
@@ -27,14 +27,15 @@ class MainWindow : public QMainWindow
   int activeTime;
   Pomodoro *pomodoro;
 
-  private slots:
+private slots:
   void timerStart();
   //void activeEvent();
   void restEvent();
   void paintEvent();
   void updateTimer(QLabel *label);
-  void pomodoroAddTask();
+  void pomodoroAddTask(Task task);
   void pomodoroRenameTask();
+  void pomodoroCreateNewTask();
   //  void update();
 };
 

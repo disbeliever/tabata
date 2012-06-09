@@ -1,5 +1,4 @@
 #include <QtGui>
-#include <QSound>
 #include <iostream>
 
 #include "main_window.h"
@@ -12,13 +11,12 @@ MainWindow::MainWindow (QWidget *parent) : QMainWindow(parent) {
   connect(ui.actionRenameTask, SIGNAL(activated()), SLOT(pomodoroRenameTask()));
   connect(restTimer, SIGNAL(timeout()), this, SLOT(restEvent()));
   connect(timer, SIGNAL(timeout()), this, SLOT(paintEvent()));
+  connect(ui.pomodoroAddButton, SIGNAL(clicked()), this, SLOT(pomodoroCreateNewTask()));
 
-  connect(ui.pomodoroAddButton, SIGNAL(clicked()), this, SLOT(pomodoroAddTask()));
+  //connect(ui.listWidget, SIGNAL(itemDoubleClicked()), this, SLOT(pomodoroRenameTask()));
   running = false;
 
   pomodoro = new Pomodoro;
-  pomodoro->addTask(new Task("Hello"));
-
   commandAndParameters <<
     "/home/nerevar/samples/thesys_drums_pt1/hats+2perc/hat5.flac";
 }
@@ -27,13 +25,20 @@ MainWindow::~MainWindow() {
 
 }
 
-void MainWindow::pomodoroAddTask() {
-  pomodoro->addTask(new Task("Example"));
-  ui.listWidget->addItem("Hello world");
+void MainWindow::pomodoroCreateNewTask() {
+  Task *task = new Task("Hello");
+  pomodoroAddTask(*task);
+}
+
+void MainWindow::pomodoroAddTask(Task task) {
+  pomodoro->addTask(task);
+  //QMessageBox::information(0, "Information", task.getContent());
+  ui.listWidget->addItem(task.getContent());
 }
 
 void MainWindow::pomodoroRenameTask() {
-  ui.listWidget->openPersistentEditor(ui.listWidget->currentItem());
+  //ui.listWidget->openPersistentEditor(ui.listWidget->currentItem());
+  ui.listWidget->removeItemWidget(ui.listWidget->currentItem());
   std::cout << "renaming";
 }
 

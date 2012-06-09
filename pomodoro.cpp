@@ -2,7 +2,7 @@
 #include <QtGui>
 #include "pomodoro.h"
 
-Pomodoro::Pomodoro(QObject *parent) : QObject (parent) {
+Pomodoro::Pomodoro() {
   //tasks = new QStringList;
   tasks = new QList<Task>;
   timer = new QTimer;
@@ -12,11 +12,11 @@ Pomodoro::~Pomodoro() {
 
 }
 
-void Pomodoro::addTask(Task *task) {
-  //tasks << task->getContent();
+void Pomodoro::addTask(Task& task) {
+  tasks->append(task);
 }
 
-Task::Task(QString content, QObject *parent) : QObject (parent) {
+Task::Task(QString content) {
   this->content = content;
 }
 

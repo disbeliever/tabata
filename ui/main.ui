@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>309</width>
-    <height>307</height>
+    <width>301</width>
+    <height>299</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -123,7 +123,14 @@
       <item>
        <widget class="QProgressBar" name="progressBar">
         <property name="value">
-         <number>24</number>
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCommandLinkButton" name="commandLinkButton">
+        <property name="text">
+         <string>Start</string>
         </property>
        </widget>
       </item>
@@ -149,9 +156,6 @@
    </widget>
   </widget>
   <action name="actionRenameTask">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
    <property name="text">
     <string>Rename</string>
    </property>
